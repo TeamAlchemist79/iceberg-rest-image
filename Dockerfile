@@ -29,10 +29,8 @@ RUN \
 
 COPY --from=builder --chown=iceberg:iceberg /app/build/libs/iceberg-rest-image-all.jar /usr/lib/iceberg-rest/iceberg-rest-image-all.jar
 
-ENV CATALOG_CATALOG__IMPL=org.apache.iceberg.jdbc.JdbcCatalog
-ENV CATALOG_URI=jdbc:sqlite:file:/tmp/iceberg_rest_mode=memory
-ENV CATALOG_JDBC_USER=user
-ENV CATALOG_JDBC_PASSWORD=password
+ENV CATALOG_CATALOG__IMPL=org.apache.iceberg.hive.HiveCatalog
+ENV CATALOG_URI=thrift://host.docker.internal:9083
 ENV REST_PORT=8181
 
 EXPOSE $REST_PORT
