@@ -63,6 +63,14 @@ public class RESTServerCatalogAdapter extends RESTCatalogAdapter {
             tableConfig.put(S3FileIOProperties.SESSION_TOKEN, catalogConfig.get(S3FileIOProperties.SESSION_TOKEN));
         }
 
+        if (catalogConfig.containsKey(S3FileIOProperties.PATH_STYLE_ACCESS)) {
+            tableConfig.put(S3FileIOProperties.PATH_STYLE_ACCESS, catalogConfig.get(S3FileIOProperties.PATH_STYLE_ACCESS));
+        }
+
+        if (catalogConfig.containsKey(S3FileIOProperties.ENDPOINT)) {
+            tableConfig.put(S3FileIOProperties.ENDPOINT, catalogConfig.get(S3FileIOProperties.ENDPOINT));
+        }
+
         if (catalogConfig.containsKey(GCPProperties.GCS_OAUTH2_TOKEN)) {
             tableConfig.put(GCPProperties.GCS_OAUTH2_TOKEN, catalogConfig.get(GCPProperties.GCS_OAUTH2_TOKEN));
         }
