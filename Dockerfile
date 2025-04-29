@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM azul/zulu-openjdk:17 as builder
+FROM azul/zulu-openjdk:17 AS builder
 
 COPY . /app/
 WORKDIR /app/
@@ -35,6 +35,6 @@ ENV REST_PORT=8181
 
 EXPOSE $REST_PORT
 USER iceberg:iceberg
-ENV LANG en_US.UTF-8
+ENV LANG=en_US.UTF-8
 WORKDIR /usr/lib/iceberg-rest
 CMD ["java", "-jar", "iceberg-rest-image-all.jar"]
